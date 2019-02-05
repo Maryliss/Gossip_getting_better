@@ -1,0 +1,18 @@
+<div class="card-deck text-center mb-3">
+<% 
+Potin.all.each do |potin|
+    @first_name = potin.user.first_name
+    @title = potin.title
+    @content = potin.content 
+    @id = potin.id
+    %>
+    <div class="card mb-4" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"><%= @title %> </h5>
+        <p class="card-text"> <%= @first_name %> </p>
+    <%=link_to "Potin", potin_path(@id), class:"btn btn-primary" %>
+    </div>
+    </div>
+<% 
+end %>
+</div>

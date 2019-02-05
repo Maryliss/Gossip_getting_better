@@ -1,0 +1,17 @@
+<% potin = Potin.find(@id_potin)
+    @title = potin.title
+    @content = potin.content
+    @user = potin.user.first_name 
+    @user_id = potin.user_id 
+    @time = potin.created_at
+    %>
+<div class="container">
+  <h1> Voila les détails du potin </h1>
+  <blockquote class="blockquote">
+    <h3 class="mb-0 font-weight-bold"> <%= @title %> </h3>
+    <p class="text-justify"> <%= @content %> </p>
+    <p>Par <%=link_to @user,user_path(@user_id)%></p>
+    <p>Le <%=@time %></p>
+  </blockquote>
+</div>
+

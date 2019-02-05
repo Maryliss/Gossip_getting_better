@@ -1,0 +1,7 @@
+<h1>Renseignez nous votre prénom :</h1>
+<form action="/welcome" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="first_name">Prénom : </label>
+    <input type="text" name="first_name">
+    <input type="submit" name="Envoyer">
+</form>
