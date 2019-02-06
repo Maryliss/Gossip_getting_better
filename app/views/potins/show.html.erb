@@ -1,0 +1,14 @@
+
+  <div class="list-group">
+  <a href="<%=user_path(@potin.user.id)%>" 
+  class="list-group-item list-group-item-action active">
+  <div class="d-flex w-100 justify-content-between">
+  <h5 class="mb-1"><%= @potin.title %></h5>
+  <small>3 days ago</small>
+  </div>
+  <p class="mb-1"><%= @potin.content %></p>
+  <small><%= @potin.user.first_name%></small> <br>
+  <small><%= @potin.user.city.name%></small>
+  </a>
+  </div>
+

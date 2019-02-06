@@ -1,0 +1,10 @@
+
+        <h1>Voilà la liste des villes: </h1>
+        <% @cities.each do |city| %>
+
+        <div>
+          <a href="<%=city_path(city.id) %>"
+          <h5><%= city.name %></h5>
+          </a>
+        </div>
+        <% end %>

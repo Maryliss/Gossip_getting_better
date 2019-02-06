@@ -1,0 +1,13 @@
+
+  <div class="list-group">
+  <a href="<%=city_path(@user.city.id)%>" class="list-group-item list-group-item-action active">
+  <div class="d-flex w-100 justify-content-between">
+  <h5 class="mb-1"><%= @user.first_name %> <%= @user.last_name %></h5>
+  </div>
+  <p class="mb-1"> Description : <%= @user.description %></p>
+  <small>Age : <%= @user.age%> ans </small> <br>
+  <small>Email : <%= @user.email%></small> <br>
+  <small>Ville : <%= @user.city.name%></small>
+  </a>
+  </div>
+

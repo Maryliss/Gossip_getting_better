@@ -25,5 +25,13 @@ RSpec.describe Potin, type: :model do
         expect(@potin.content).to eq("prout")
       end
     end
+
+    describe "#content" do
+    it "should not be lower that 3 characters" do
+      invalid_potin = Potin.create(title: "aa")
+      expect(invalid_potin).not_to be_valid
+      expect(invalid_potin.errors.include?(:title)).to eq(true)
+    end
+  end
 end
 end

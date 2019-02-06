@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gossip</title>
+    <title>Potin</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,12 +11,37 @@
   <body>
    
     <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
-      <a class="navbar-brand" href="/">Gossips</a>
+      <a class="navbar-brand" href="/">LaNavPotins</a>
       <a class="navbar-brand" href="/connection">Connexion</a>
       <a class="navbar-brand" href="/contact">Contact</a>
       <a class="navbar-brand" href="/team">Team</a>
     </nav>
    
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Tu veux du gossip?!</h1>
+        <p>Tu es au bon endroit pour te rencarder sur les derniers potins et comérer sur ton voisin!</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Clique ici &raquo;</a></p>
+      </div>
+    </div>
+
+            <% if flash[:success]%>
+             <!-- Bootstrap Alert -->
+            <div class="alert alert-success" role="alert">
+              <!-- Fin Bootstrap Alert -->
+            <%=flash[:success]%>
+            </div>
+            <%end%>
+
+            <% if flash[:notice]%>
+            <!-- Bootstrap Alert -->
+            <div class="alert alert-danger" role="alert">
+            <!-- Fin Bootstrap Alert -->
+            <%= flash[:notice]%> 
+            </div>
+            <% end %>
+            
     <%= yield %>
   </body>
 </html>

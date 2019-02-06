@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  get 'potin/:id', to: 'dynamic_pages#potin', as: 'potin'
-  get 'user/:id', to: 'dynamic_pages#user', as: 'user'
-  get '/', to: 'static_pages#index', as: 'index'
-  get '/connection', to: 'static_pages#connection', as: 'connection'
-  get '/team', to: 'static_pages#team', as: 'team'
-  get '/contact', to: 'static_pages#contact', as: 'contact'
-  get '/welcome', to: 'static_pages#welcome', as: 'welcome'
+  resources :potins
+  resources :users
+  resources :cities
+  
+  get 'potin/:id', to: 'dynamic_pages#potin'
+  get 'user/:id', to: 'dynamic_pages#user'
+  get '/', to: 'static_pages#index'
+  get '/connection', to: 'static_pages#connection'
+  get '/team', to: 'static_pages#team'
+  get '/contact', to: 'static_pages#contact'
+  get '/welcome', to: 'static_pages#welcome'
 end
