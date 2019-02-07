@@ -1,0 +1,9 @@
+ <p>Editer mon potin? </p>
+  <%= form_for @potin do |f| %>
+    <div>
+      <p>Titre du potin:</p>
+      <%= f.text_field :title %>
+      <p>Contenu du potin:</p>
+      <%= f.text_area :content %>
+    <div>
+  <% end %>

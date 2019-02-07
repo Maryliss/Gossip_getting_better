@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :potins
   resources :users
   resources :cities
+  resources :sessions, only: [:new, :create, :destroy]
   
   get 'potin/:id', to: 'dynamic_pages#potin'
   get 'user/:id', to: 'dynamic_pages#user'

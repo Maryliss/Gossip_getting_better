@@ -39,4 +39,18 @@ class PotinsController < ApplicationController
     @potin = Potin.find(params[:id])
   end
 
+  def edit 
+    @potin = Potin.find(params[:id])
+    puts "*" * 60
+    puts params.require(:potin)
+    puts "*" * 60
+  end
+
+  def update 
+    @potin = Potin.find(params[:id])
+    puts "*" * 60
+    puts params.require(:potin)
+    puts "*" * 60
+  end
+
 end

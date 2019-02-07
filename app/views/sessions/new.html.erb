@@ -1,0 +1,26 @@
+
+<html>
+  <body>  
+
+      <!-- ... -->
+
+        <p>Connecte toi! </p>
+        <%= form_tag url_for(action: 'create'), method: "post" do %>
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+          <%= label_tag 'Ton email' %>
+          <%= text_field_tag 'email', @user %>
+          <br /> <br />     
+
+          <%= label_tag 'Ton mot de passe' %>
+          <%= text_field_tag 'password', @user %>
+          <br /> <br />
+
+          <%= submit_tag "Valider" %>
+
+        <% end %>
+
+      <!-- ... -->
+
+  </body>
+</html>
