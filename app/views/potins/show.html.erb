@@ -1,14 +1,58 @@
 
+  <!---- ici mon article----->
   <div class="list-group">
   <a href="<%=user_path(@potin.user.id)%>" 
   class="list-group-item list-group-item-action active">
   <div class="d-flex w-100 justify-content-between">
-  <h5 class="mb-1"><%= @potin.title %></h5>
-  <small>3 days ago</small>
+  <h3 class="mb-1"><%= @potin.title %></h3>
+  <br>
+  <small><%= @potin.created_at.strftime("%Y/%m/%d")%></small>
   </div>
-  <p class="mb-1"><%= @potin.content %></p>
-  <small><%= @potin.user.first_name%></small> <br>
-  <small><%= @potin.user.city.name%></small>
+  <h4 class="mb-1"><%= @potin.content %></p></h4>
+  <br>
+  <h5>Posté par <%= @potin.user.first_name %></h5>
+  <small>À <%= @potin.user.city.name%></small>
+  <br>
+    <% unless @potin.comments.empty? %>
+      <h6><%= @potin.comments.count%> comment(s) </h6> <% end %>
+    <% unless @potin.comments.empty? %>
+
+<% end %>
   </a>
   </div>
+
+
+
+  <!---- ici mon espace pour publier un commentaire----->
+  <br>
+  <div class="input-group">
+  <div class="input-group-prepend">
+    <h5>Mon commentaire</h5>
+  </div>
+  <textarea class="form-control" aria-label="With textarea"></textarea>
+</div>
+  <!---- ici mon bouton pour valider le commentaire----->
+<br>
+  <%= submit_tag "Valider mon commentaire" %>
+<br>
+
+
+
+  <!---- ici les autres commentaires----->
+  <% @potin.comments.each do |comment| %>
+
+
+        <br>
+        Voilà les précédents commentaires:
+        <br>
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active">
+          <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= comment.content %></h5>
+          </div>
+          <small><%= comment.user.first_name%></small>
+          </a>
+        </div>
+        <br>
+        <% end %>
 

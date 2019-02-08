@@ -22,7 +22,7 @@ class PotinsController < ApplicationController
     puts params
     puts "$" * 60
     @potin = Potin.new('title' => params[:title],'content' => params[:content], 'user_id'=> rand(User.first.id..User.last.id))
-    
+    @potin.user = User.find_by(id: session[:user_id])
 
     if @potin.save # essaie de sauvegarder en base @gossip
       # si ça marche, il redirige vers la page d'index du site
@@ -33,6 +33,7 @@ class PotinsController < ApplicationController
       flash[:notice] = "Potin non créé!"
       render 'new'
     end
+
   end
 
   def show
@@ -41,16 +42,22 @@ class PotinsController < ApplicationController
 
   def edit 
     @potin = Potin.find(params[:id])
-    puts "*" * 60
-    puts params.require(:potin)
-    puts "*" * 60
   end
 
   def update 
     @potin = Potin.find(params[:id])
-    puts "*" * 60
-    puts params.require(:potin)
-    puts "*" * 60
+
+    if @potin.update("title" => params[:title], "content" =>  params[:content])
+      redirect_to @potin
+    else
+      render :edit
+    end
+  end
+
+  def destroy 
+    @potin = Potin.find(params[:id])
+    @potin.destroy
+    redirect_to potins_path
   end
 
 end

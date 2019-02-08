@@ -22,8 +22,15 @@ class SessionsController < ApplicationController
 
   end
 
+  def show 
+    @user = User.find(params[:id])
+  end
+
   def destroy 
-  
+    puts "debut def destroy"
+    session.delete(:user_id)
+    puts "fin def destroy"
+    redirect_to potins_path
   end
   
 end

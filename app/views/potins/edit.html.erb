@@ -5,5 +5,14 @@
       <%= f.text_field :title %>
       <p>Contenu du potin:</p>
       <%= f.text_area :content %>
-    <div>
+      
+      <div class= button>
+      <%= link_to "Modifier mon potin", @potin, method: :update,  data: {confirm: "Sûr de vouloir modifier le contenu?"} %>
+      </div>
+
+      <div class= button>
+      <%= link_to "Delete", @potin, method: :delete, data: {confirm: "Voulez-vous vraiment supprimer ce potin?"} %>
+      </div>
+
+    </div>
   <% end %>
