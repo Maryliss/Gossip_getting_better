@@ -31,7 +31,8 @@ class PotinsController < ApplicationController
     else
       # sinon, il render la view new (qui est celle sur laquelle on est déjà)
       flash[:notice] = "Potin non créé!"
-      render 'new'
+      redirect_to potins_path(params[:potin_id])
+      flash.delete(:notice)
     end
 
   end

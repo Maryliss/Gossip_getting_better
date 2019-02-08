@@ -26,9 +26,11 @@
    
     <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
     <div>
-      <a class="navbar-brand" href="/">LaNavPotins</a>   
-      <a class="navbar-brand" href="/contact">Contact</a>
-      <a class="navbar-brand" href="/team">Team</a>
+      <a href="<%= potins_path %>" class="navbar-brand">LaNavPotins</a>  
+      <a href="<%= potins_path %>" class="navbar-brand">Consulter les potins</a>  
+      <a href="<%= new_potin_path %>" class="navbar-brand">Lancer un potin</a> 
+      <a href="<%= contact_path %>" class="navbar-brand">Contact</a> 
+      <a href="<%= team_path %>" class="navbar-brand">Team</a> 
     </div>
       
     <% if current_user %>

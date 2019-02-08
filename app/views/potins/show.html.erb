@@ -21,38 +21,18 @@
   </a>
   </div>
 
-
-
   <!---- ici mon espace pour publier un commentaire----->
-  <br>
-  <div class="input-group">
-  <div class="input-group-prepend">
-    <h5>Mon commentaire</h5>
-  </div>
-  <textarea class="form-control" aria-label="With textarea"></textarea>
-</div>
-  <!---- ici mon bouton pour valider le commentaire----->
-<br>
-  <%= submit_tag "Valider mon commentaire" %>
-<br>
 
-
+  <%= form_tag("/potins/#{@potin.id}/comments", method: "post") do %>
+    <%= label_tag 'Comment'%>
+    <%= text_area_tag 'content', @comment, class: 'form-control'%>
+    <br>
+    <%= submit_tag "Publier", class: "btn btn-primary"%>
+    <% end %>
 
   <!---- ici les autres commentaires----->
-  <% @potin.comments.each do |comment| %>
 
-
-        <br>
-        Voilà les précédents commentaires:
-        <br>
-        <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action active">
-          <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1"><%= comment.content %></h5>
-          </div>
-          <small><%= comment.user.first_name%></small>
-          </a>
-        </div>
-        <br>
-        <% end %>
-
+		<% @potin.comments.each do |comment| %>
+			<p class="mt-3"><%= link_to comment.user.first_name, user_path(comment.user.id), class: 'text-decoration-none' %><br>
+			<i class="far fa-comment text-danger mr-2"></i><%= comment.content %></p>
+		<% end %>
