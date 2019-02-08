@@ -15,4 +15,7 @@ leur faire un look : -Bootstrap
 #Pré-requis
 $ télécharger le zip $ dézipper $ chemin du dossier dans le terminal $ bundle install (pour avoir les gems: gem 'table_print', gem 'faker', gem 'rspec-rails', gem 'table_print', gem 'factory_bot_rails') $ rails db:create $ rails db:migrate $ rails db:seed $ rails db:migrate:status $ rails s
 
-http://localhost:3000/home
+http://localhost:3000/potins
+
+sinon un jour ça marchera ici:
+https://tu-veux-du-gossip.herokuapp.com/
